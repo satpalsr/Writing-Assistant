@@ -18,7 +18,32 @@ print(train_dataset)
 print(train_dataset['sentence'][0])
 print(train_dataset['corrections'][0])
 
-import csv
+replacements = [
+  (" .", "."), 
+  (" ,", ","),
+  (" '", "'"),
+  (" ?", "?"),
+  (" !", "!"),
+  (" :", "!"),
+  (" ;", "!"),
+  (" n't", "n't"),
+  (" v", "n't"),
+  ("2 0 0 6", "2006"),
+  ("5 5", "55"),
+  ("4 0 0", "400"),
+  ("1 7-5 0", "1750"),
+  ("2 0 %", "20%"),
+  ("5 0", "50"),
+  ("1 2", "12"),
+  ("1 0", "10"),
+  ('" ballast water', '"ballast water')
+]
+
+def remove_excess_spaces(text):
+  for rep in replacements:
+    text = text.replace(rep[0], rep[1])
+
+  return text
 
 def generate_csv(csv_path, dataset):
     with open(csv_path, 'w', newline='') as csvfile:
@@ -27,12 +52,13 @@ def generate_csv(csv_path, dataset):
         for case in dataset:
      	    # Adding the task's prefix to input 
             input_text = "grammar: " + case["sentence"]
+            input_text = remove_excess_spaces(input_text)
             for correction in case["corrections"]:
-                # a few of the cases contain blank strings. 
-                if input_text and correction:
-                    writter.writerow([input_text, correction])
-                    
-
+              correction = remove_excess_spaces(correction)
+              # a few of the cases contain blank strings. 
+              if input_text and correction:
+                writter.writerow([input_text, correction])
 
 generate_csv("train.csv", train_dataset)
 generate_csv("eval.csv", eval_dataset)
+
