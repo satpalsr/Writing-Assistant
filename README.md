@@ -8,7 +8,7 @@ The model can be accessed from here: [T5-base-c4jfleg](https://huggingface.co/te
 
 Prefix: The T-5 model use "grammar: " as the input text prefix for grammatical corrections.
 
-# Example Usage:
+## Example Usage:
 
 ```
 from transformers import pipeline
@@ -33,5 +33,7 @@ Output: My grammar is bad.
 Input: Who are the president?   
 Output: Who is the president?
 
-# Deployment:
-The model has also been deployed on [HuggingFace Space](https://huggingface.co/spaces/satpalsr/grammar-correction)
+## Deployment:
+The model has also been deployed on [HuggingFace Space.](https://huggingface.co/spaces/satpalsr/grammar-correction)
+
+You can also view a [demo video here.](https://twitter.com/SatpalPatawat/status/1461939258495700994)
