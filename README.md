@@ -8,6 +8,12 @@ The model can be accessed from here: [T5-base-c4jfleg](https://huggingface.co/te
 
 Prefix: The T-5 model use "grammar: " as the input text prefix for grammatical corrections.
 
+# Demo
+
+Try out the model on [HuggingFace Space.](https://huggingface.co/spaces/satpalsr/grammar-correction)
+
+https://user-images.githubusercontent.com/39311993/144752370-07f79217-efbb-40f1-ad11-0dab96781b50.mp4
+
 ## Example Usage:
 
 ```
@@ -52,6 +58,6 @@ Output: Who is the president?
    ```docker run -p 8080:5000 grammar-correction-image``` 
 
 ## Deployment:
-The model has also been deployed on [HuggingFace Space.](https://huggingface.co/spaces/satpalsr/grammar-correction)
+The model has also been deployed on [HuggingFace Space](https://huggingface.co/spaces/satpalsr/grammar-correction) using Streamlit app.
 
-You can also view a [demo video here.](https://twitter.com/SatpalPatawat/status/1461939258495700994)
+A Flask app is also available if you want to go forward with it.
